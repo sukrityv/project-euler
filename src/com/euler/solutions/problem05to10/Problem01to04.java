@@ -105,41 +105,4 @@ public class Problem01to04 {
 		}
 		return result;
 	}
-	
-	/**
-	 * Largest Palindromic Number from 3 digits
-	 * @return
-	 */
-	long problem4(){
-		
-		int num1=999, num2=999, num3=999;		
-		int maxNum = num1 * num2 * num3;
-		int palindrom = 0;
-		
-		System.out.println(maxNum);
-		
-		char[] palNum = String.valueOf(maxNum).toCharArray();
-		for(int i=0, j=palNum.length-1; i<j; i++, j--){
-			if(palNum[i] < palNum[j]){
-				palNum[j] = palNum[i];	
-			} else {
-				palNum[i] = palNum[j];
-			}
-		}
-		System.out.println(palNum);
-		
-		String palStr = "";
-		for(Character ch : palNum){
-			palStr += ch;
-		}
-		palindrom = Integer.parseInt(palStr);
-		
-		for(int i=999; i>100; i--){
-			if(palindrom%i==0){
-				
-			}
-		}
-		
-		return palindrom;
-	}
 }
