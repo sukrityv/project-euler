@@ -1,7 +1,7 @@
 package com.euler.solutions.problem11to15;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Longest Collatz sequence
@@ -22,55 +22,45 @@ public class Problem14_LongestCollatzSequence {
 
 	public static void main(String[] args) {
 		long startTime = System.currentTimeMillis();
-		
-		System.out.println(getCollatzSequence());
-	
+
+		System.out.println(getCollatzSequence(10));
+
 		long endTime = System.currentTimeMillis();
 		System.out.println("That took " + (endTime - startTime) + " milliseconds");
 	}
 
-	private static int getCollatzSequence() {
-		
-		int starting = 1000000;
-		List<Integer> chain = new ArrayList<Integer>();
-		chain.add(starting);
-		
-		//Populate 1st chain
-		int num = starting - 1;
-		int count=0;
-		while(num>=1){
-			if(num%2==0){
-				num = num/2;
-			} else {
-				num = 3 * num + 1;
-			}
-			count++;
-		}
-		System.out.println(count);
-		
-		/*int length = chain.size();
-		int result = starting;
-		
-		for(int i=starting-2; i > starting/2; i--){
-			int count = 0;
-			
-			while(num>=1){
-				if(chain.contains(num)){
-					count += chain.size() - chain.indexOf(num) + 1;
+	private static long getCollatzSequence(int limit) {
+
+		Map<Long, Integer> chainLengths = new HashMap<Long, Integer>();
+		long maxLength = 1;
+		long number = 1;
+
+		for (int i = 2; i < limit; i++) {
+			int length = 1;
+			long num = i;
+
+			Map<Long, Integer> temp = new HashMap<Long, Integer>();
+
+			while (num >= 1) {
+				if (chainLengths.containsKey(num)) {
+					length += chainLengths.get(num);
 					break;
 				}
-				if(num%2==0){
-					num = num/2;
-				} else {
-					num = 3 * num + 1;
-				}
-				count++;
+				num = num % 2 == 0 ? num / 2 : 3 * num + 1;
+				length++;
+				temp.put(num, length);
 			}
-			if(count > length){
-				result = i;
+			chainLengths.put(num, length);
+			if (length > maxLength) {
+				maxLength = length;
+				number = i;
 			}
-		}*/
-		
-		return 0;
+			for (long tempNum : temp.keySet()) {
+				chainLengths.put(tempNum, length - temp.get(tempNum) + 1);
+			}
+		}
+		System.out.println(number);
+
+		return maxLength;
 	}
 }
