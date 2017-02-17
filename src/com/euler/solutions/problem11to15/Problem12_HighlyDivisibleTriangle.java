@@ -1,4 +1,4 @@
-package com.euler.solutions.problems11to15;
+package com.euler.solutions.problem11to15;
 
 /**
  * Highly divisible triangular number
