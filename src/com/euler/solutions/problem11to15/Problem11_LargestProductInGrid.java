@@ -1,13 +1,13 @@
-package com.euler.solutions.problems11to15;
+package com.euler.solutions.problem11to15;
 
 /**
  * Largest product in a grid
  * Problem 11
- * In the 20×20 grid below, four numbers along a diagonal line have been marked in red.
+ * In the 20Ã—20 grid below, four numbers along a diagonal line have been marked in red.
  * 
- * The product of these numbers is 26 × 63 × 78 × 14 = 1788696.
+ * The product of these numbers is 26 Ã— 63 Ã— 78 Ã— 14 = 1788696.
  * 
- * What is the greatest product of four adjacent numbers in the same direction (up, down, left, right, or diagonally) in the 20×20 grid?
+ * What is the greatest product of four adjacent numbers in the same direction (up, down, left, right, or diagonally) in the 20Ã—20 grid?
  * 
  * @author sukrityv
  *
