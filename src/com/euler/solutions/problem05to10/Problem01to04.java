@@ -12,7 +12,7 @@ public class Problem01to04 {
 		System.out.println("1. " + s.problem1());
 		System.out.println("2. " + s.problem2());
 		System.out.println("3. " + s.problem3Faster());
-		System.out.println("4. " + s.problem4());
+		//System.out.println("4. " + s.problem4());
 		
 	}
 
